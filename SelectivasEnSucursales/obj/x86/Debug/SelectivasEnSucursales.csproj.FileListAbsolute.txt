@@ -1,0 +1,7 @@
+D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\bin\Debug\SelectivasEnSucursales.exe
+D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\bin\Debug\SelectivasEnSucursales.pdb
+D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\obj\x86\Debug\SelectivasEnSucursales.Properties.Resources.resources
+D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\obj\x86\Debug\SelectivasEnSucursales.csproj.GenerateResource.Cache
+D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\obj\x86\Debug\SelectivasEnSucursales.exe
+D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\obj\x86\Debug\SelectivasEnSucursales.pdb
+D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\obj\x86\Debug\SelectivasEnSucursales.GUIs.FrmPrincipal.resources
