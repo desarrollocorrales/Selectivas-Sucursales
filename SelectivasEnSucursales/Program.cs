@@ -15,7 +15,7 @@ namespace SelectivasEnSucursales
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SelectivasEnSucursales.GUIs.FrmPrincipal());
+            Application.Run(new SelectivasEnSucursales.GUIs.FrmInicio());
         }
     }
 }

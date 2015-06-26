@@ -11,7 +11,8 @@
     <RootNamespace>SelectivasEnSucursales</RootNamespace>
     <AssemblyName>SelectivasEnSucursales</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -33,15 +34,39 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>inventory-management-icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SelectivasEnSucursales.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AccSettings">
+      <HintPath>.\AccSettings.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v11.1, Version=11.1.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v11.1, Version=11.1.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v11.1, Version=11.1.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v11.1, Version=11.1.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>packages\FirebirdSql.Data.FirebirdClient.4.6.2.0\lib\net40-client\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Sofbr.Utils">
+      <HintPath>.\Sofbr.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,17 +77,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUIs\FrmPrincipal.cs">
+    <Compile Include="Controladores\FBDAL.cs" />
+    <Compile Include="GUIs\FrmCarnicos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIs\FrmPrincipal.Designer.cs">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    <Compile Include="GUIs\FrmCarnicos.Designer.cs">
+      <DependentUpon>FrmCarnicos.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIs\FrmConfiguracionAbarrotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\FrmConfiguracionAbarrotes.Designer.cs">
+      <DependentUpon>FrmConfiguracionAbarrotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\FrmConfiguracionCarnicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\FrmConfiguracionCarnicos.Designer.cs">
+      <DependentUpon>FrmConfiguracionCarnicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\FrmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\FrmInicio.Designer.cs">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\FrmAbarrotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\FrmAbarrotes.Designer.cs">
+      <DependentUpon>FrmAbarrotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Almacen.cs" />
     <Compile Include="Modelos\Articulo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUIs\FrmPrincipal.resx">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    <Compile Include="Web References\SegConService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUIs\FrmCarnicos.resx">
+      <DependentUpon>FrmCarnicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\FrmConfiguracionAbarrotes.resx">
+      <DependentUpon>FrmConfiguracionAbarrotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\FrmConfiguracionCarnicos.resx">
+      <DependentUpon>FrmConfiguracionCarnicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\FrmInicio.resx">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\FrmAbarrotes.resx">
+      <DependentUpon>FrmAbarrotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -73,7 +141,25 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Configuracion\Abastecedora.set">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Configuracion\Fidel.set">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Configuracion\Heroico.set">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Configuracion\Libertad.set">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\SelectivasEnSucursales.AccService.etiquetas.datasource" />
     <None Include="Properties\DataSources\SelectivasEnSucursales.Modelos.Articulo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -84,8 +170,46 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\SegConService\EtiquetasGrid.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SegConService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SegConService\ServicioWeb.wsdl" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ClasesDeConfiguracion\ClasesDeConfiguracion.csproj">
+      <Project>{785F53C6-6C28-47F1-8B7A-E4F5A6ABE263}</Project>
+      <Name>ClasesDeConfiguracion</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuracion\Leeme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web References\SegConService\ServicioWeb.disco" />
+    <None Include="meats.jpg" />
+    <None Include="groceries.jpg" />
+    <Content Include="inventory-management-icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://servidorx:82/SegCoServices/ServicioWeb.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SegConService\</RelPath>
+      <UpdateFromURL>http://servidorx:82/SegCoServices/ServicioWeb.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SelectivasEnSucursales_SegConService_SegConWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
