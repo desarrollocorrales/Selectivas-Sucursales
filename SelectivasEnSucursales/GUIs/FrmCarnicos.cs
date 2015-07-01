@@ -7,14 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraPrintingLinks;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace SelectivasEnSucursales.GUIs
 {
     public partial class FrmCarnicos : Form
     {
+        private TimeSpan tiempoConsultaInicial, tiempoConsultaFinal;
         private string sError;
         private string sArchivoDeEscaneo;
         private List<SegConService.EtiquetasGrid> lstEtiquetas;
+
+        // Creando componentes de impresión.
+        PrintingSystem SistemaImpresion = new PrintingSystem();
+        PrintableComponentLink ComponenteImpresion = new PrintableComponentLink();
 
         public FrmCarnicos()
         {
@@ -30,6 +38,7 @@ namespace SelectivasEnSucursales.GUIs
         {
             try
             {
+                pbCargando.Visible = true;
                 ConsultarEtiquetas();
             }
             catch (Exception ex)
@@ -60,6 +69,7 @@ namespace SelectivasEnSucursales.GUIs
         }
         private void ConsultarEtiquetas()
         {
+            tiempoConsultaInicial = DateTime.Now.TimeOfDay;
             btnConsultar.Enabled = false;
             bgwConsulta.RunWorkerAsync();
         }
@@ -120,6 +130,7 @@ namespace SelectivasEnSucursales.GUIs
             {
                 gridEtiquetas.DataSource = lstEtiquetas;
                 gvEtiquetas.BestFitColumns();
+                pbCargando.Visible = false;
             }
             else
             {
@@ -127,6 +138,44 @@ namespace SelectivasEnSucursales.GUIs
             }
 
             btnConsultar.Enabled = true;
+            tiempoConsultaFinal = DateTime.Now.TimeOfDay;
+            TimeSpan tiempoTotal = tiempoConsultaFinal - tiempoConsultaInicial;
+            lbltiempo.Text = "Tiempo de consulta: " + tiempoTotal.Seconds + " segundos.";
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            ImprimirGrid();
+        }
+        private void ImprimirGrid()
+        {
+            /******************************/
+            // Creamos el Header
+            PageHeaderArea Header = new PageHeaderArea();
+            ComponenteImpresion.Images.Add(Image.FromFile("logomini.png"));
+            Header.Content.AddRange(new string[] { "[Image 0]", Properties.Settings.Default.Sucursal, "[Time Printed]" });
+            Header.LineAlignment = BrickAlignment.Far;
+            /******************************/
+
+            /******************************/
+            //Creamos el Footer
+            string izquierda = "Paginas: [Page # of Pages #]";
+            string centro = "Usuario: [User Name]";
+            string derecha = "Fecha: [Date Printed]";
+            PageFooterArea Footer = new PageFooterArea();
+            Footer.Content.AddRange(new string[] { izquierda, centro, derecha });
+            Footer.LineAlignment = BrickAlignment.Near;
+            /*****************************/
+
+            /******************************/
+            //Agregar el Grid al documento
+            ComponenteImpresion.Component = gridEtiquetas;
+            //Agregar el header y el footer al documento
+            ComponenteImpresion.PageHeaderFooter = new PageHeaderFooter(Header, Footer);
+            //Crear el documento
+            ComponenteImpresion.CreateDocument(SistemaImpresion);
+            //Mostrar la vista previa para imprimir
+            ComponenteImpresion.ShowPreviewDialog();
         }
     }
 }

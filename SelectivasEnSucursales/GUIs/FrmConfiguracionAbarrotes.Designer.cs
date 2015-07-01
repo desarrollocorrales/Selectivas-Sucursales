@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguracionAbarrotes));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,11 +41,11 @@
             this.nudPuerto = new System.Windows.Forms.NumericUpDown();
             this.btnGuardarTodo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txbSucursal = new System.Windows.Forms.TextBox();
             this.btnCargarParametros = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnMostrarAlmacenes = new System.Windows.Forms.Button();
             this.cbAlmacenes = new System.Windows.Forms.ComboBox();
-            this.txbSucursal = new System.Windows.Forms.TextBox();
             this.ofdConfiguracion = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.nudPuerto)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -171,6 +172,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Base de Datos";
             // 
+            // txbSucursal
+            // 
+            this.txbSucursal.Location = new System.Drawing.Point(130, 38);
+            this.txbSucursal.Name = "txbSucursal";
+            this.txbSucursal.Size = new System.Drawing.Size(392, 26);
+            this.txbSucursal.TabIndex = 0;
+            // 
             // btnCargarParametros
             // 
             this.btnCargarParametros.Location = new System.Drawing.Point(183, 207);
@@ -211,19 +219,12 @@
             this.cbAlmacenes.Size = new System.Drawing.Size(392, 26);
             this.cbAlmacenes.TabIndex = 0;
             // 
-            // txbSucursal
-            // 
-            this.txbSucursal.Location = new System.Drawing.Point(130, 38);
-            this.txbSucursal.Name = "txbSucursal";
-            this.txbSucursal.Size = new System.Drawing.Size(392, 26);
-            this.txbSucursal.TabIndex = 0;
-            // 
             // ofdConfiguracion
             // 
             this.ofdConfiguracion.FileName = "*.set";
             this.ofdConfiguracion.Filter = "Archivos de configuracion corrales | *.set";
             // 
-            // FrmConfiguracion
+            // FrmConfiguracionAbarrotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,10 +234,11 @@
             this.Controls.Add(this.btnGuardarTodo);
             this.Controls.Add(this.lblTitulo);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(600, 480);
             this.MinimumSize = new System.Drawing.Size(600, 480);
-            this.Name = "FrmConfiguracion";
+            this.Name = "FrmConfiguracionAbarrotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Configuración";
             this.Load += new System.EventHandler(this.FrmConfiguracion_Load);

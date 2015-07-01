@@ -49,9 +49,12 @@
             this.ofdEscaneo = new System.Windows.Forms.OpenFileDialog();
             this.btnBuscarArchivo = new System.Windows.Forms.Button();
             this.bgwConsulta = new System.ComponentModel.BackgroundWorker();
+            this.pbCargando = new System.Windows.Forms.PictureBox();
+            this.lbltiempo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridEtiquetas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.etiquetasGridBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvEtiquetas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCargando)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -126,7 +129,7 @@
             this.gridEtiquetas.Location = new System.Drawing.Point(12, 155);
             this.gridEtiquetas.MainView = this.gvEtiquetas;
             this.gridEtiquetas.Name = "gridEtiquetas";
-            this.gridEtiquetas.Size = new System.Drawing.Size(768, 372);
+            this.gridEtiquetas.Size = new System.Drawing.Size(768, 359);
             this.gridEtiquetas.TabIndex = 8;
             this.gridEtiquetas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvEtiquetas});
@@ -137,6 +140,10 @@
             // 
             // gvEtiquetas
             // 
+            this.gvEtiquetas.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvEtiquetas.Appearance.FooterPanel.Options.UseFont = true;
+            this.gvEtiquetas.Appearance.GroupFooter.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvEtiquetas.Appearance.GroupFooter.Options.UseFont = true;
             this.gvEtiquetas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colNumeroDeEtiqueta,
             this.colClaveNombre,
@@ -157,6 +164,10 @@
             // 
             // colNumeroDeEtiqueta
             // 
+            this.colNumeroDeEtiqueta.AppearanceCell.Options.UseTextOptions = true;
+            this.colNumeroDeEtiqueta.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNumeroDeEtiqueta.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNumeroDeEtiqueta.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNumeroDeEtiqueta.FieldName = "NumeroDeEtiqueta";
             this.colNumeroDeEtiqueta.Name = "colNumeroDeEtiqueta";
             this.colNumeroDeEtiqueta.Visible = true;
@@ -171,6 +182,10 @@
             // 
             // colFechaDeEmpaque
             // 
+            this.colFechaDeEmpaque.AppearanceCell.Options.UseTextOptions = true;
+            this.colFechaDeEmpaque.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colFechaDeEmpaque.AppearanceHeader.Options.UseTextOptions = true;
+            this.colFechaDeEmpaque.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFechaDeEmpaque.FieldName = "FechaDeEmpaque";
             this.colFechaDeEmpaque.Name = "colFechaDeEmpaque";
             this.colFechaDeEmpaque.Visible = true;
@@ -178,6 +193,10 @@
             // 
             // colFechaDeCaducidad
             // 
+            this.colFechaDeCaducidad.AppearanceCell.Options.UseTextOptions = true;
+            this.colFechaDeCaducidad.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colFechaDeCaducidad.AppearanceHeader.Options.UseTextOptions = true;
+            this.colFechaDeCaducidad.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFechaDeCaducidad.FieldName = "FechaDeCaducidad";
             this.colFechaDeCaducidad.Name = "colFechaDeCaducidad";
             this.colFechaDeCaducidad.Visible = true;
@@ -185,6 +204,8 @@
             // 
             // colCantidad
             // 
+            this.colCantidad.AppearanceHeader.Options.UseTextOptions = true;
+            this.colCantidad.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colCantidad.FieldName = "Cantidad";
             this.colCantidad.Name = "colCantidad";
             this.colCantidad.Visible = true;
@@ -192,6 +213,8 @@
             // 
             // colUnidad
             // 
+            this.colUnidad.AppearanceHeader.Options.UseTextOptions = true;
+            this.colUnidad.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colUnidad.FieldName = "Unidad";
             this.colUnidad.Name = "colUnidad";
             this.colUnidad.Visible = true;
@@ -206,6 +229,7 @@
             this.btnImprimir.TabIndex = 9;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // ofdEscaneo
             // 
@@ -229,11 +253,36 @@
             this.bgwConsulta.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwConsulta_DoWork);
             this.bgwConsulta.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwConsulta_RunWorkerCompleted);
             // 
+            // pbCargando
+            // 
+            this.pbCargando.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbCargando.Image = global::SelectivasEnSucursales.Properties.Resources.cargando;
+            this.pbCargando.Location = new System.Drawing.Point(312, 239);
+            this.pbCargando.Name = "pbCargando";
+            this.pbCargando.Size = new System.Drawing.Size(169, 94);
+            this.pbCargando.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbCargando.TabIndex = 11;
+            this.pbCargando.TabStop = false;
+            this.pbCargando.Visible = false;
+            // 
+            // lbltiempo
+            // 
+            this.lbltiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbltiempo.AutoSize = true;
+            this.lbltiempo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltiempo.Location = new System.Drawing.Point(12, 517);
+            this.lbltiempo.Name = "lbltiempo";
+            this.lbltiempo.Size = new System.Drawing.Size(103, 13);
+            this.lbltiempo.TabIndex = 12;
+            this.lbltiempo.Text = "Tiempo de consulta:";
+            // 
             // FrmCarnicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 573);
+            this.Controls.Add(this.lbltiempo);
+            this.Controls.Add(this.pbCargando);
             this.Controls.Add(this.btnBuscarArchivo);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.gridEtiquetas);
@@ -244,12 +293,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCarnicos";
             this.Text = "Selectivas de Carnicos";
             ((System.ComponentModel.ISupportInitialize)(this.gridEtiquetas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.etiquetasGridBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvEtiquetas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCargando)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,5 +327,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCantidad;
         private DevExpress.XtraGrid.Columns.GridColumn colUnidad;
         private System.ComponentModel.BackgroundWorker bgwConsulta;
+        private System.Windows.Forms.PictureBox pbCargando;
+        private System.Windows.Forms.Label lbltiempo;
     }
 }

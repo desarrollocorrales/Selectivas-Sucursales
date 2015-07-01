@@ -45,12 +45,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2CA2884F239D44E69539CDD66B1E8BC7"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_2F715042DFE54890B36013ABE4B9BD2E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -333,6 +327,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_AEFA369F7BE14121A3E62E94DA6ECAF5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CE794C64F55E0EDC5B90B7256F8B5F64"
         "OwnerKey" = "8:_3D5A23BDE0D64E2BA3C7D17CD6639188"
         "MsmSig" = "8:_UNDEFINED"
@@ -359,6 +359,12 @@
         {
         "MsmKey" = "8:_E609F496BCE4007323B9F0697F87C7E4"
         "OwnerKey" = "8:_3D5A23BDE0D64E2BA3C7D17CD6639188"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FDA0C46949954820BD6459FC64AF04ED"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -662,26 +668,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2CA2884F239D44E69539CDD66B1E8BC7"
-            {
-            "SourcePath" = "8:..\\SelectivasEnSucursales\\inventory-management-icon.ico"
-            "TargetName" = "8:inventory-management-icon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_2F7945F1260E4B8BB8404B4C54E36AFA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2F715042DFE54890B36013ABE4B9BD2E"
@@ -1034,6 +1020,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AEFA369F7BE14121A3E62E94DA6ECAF5"
+            {
+            "SourcePath" = "8:..\\SelectivasEnSucursales\\logomini.png"
+            "TargetName" = "8:logomini.png"
+            "Tag" = "8:"
+            "Folder" = "8:_2F7945F1260E4B8BB8404B4C54E36AFA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CE794C64F55E0EDC5B90B7256F8B5F64"
             {
             "AssemblyRegister" = "3:1"
@@ -1127,6 +1133,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FDA0C46949954820BD6459FC64AF04ED"
+            {
+            "SourcePath" = "8:D:\\Mis Imágenes\\Iconos\\Tienda.ico"
+            "TargetName" = "8:Tienda.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_2F7945F1260E4B8BB8404B4C54E36AFA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -1195,7 +1221,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Selectivas en Sucursales"
         "ProductCode" = "8:{1A9F4987-6707-406A-A0B7-FC15E043B3F4}"
-        "PackageCode" = "8:{21D17452-FCFE-4837-8256-3DDCE1AE3C29}"
+        "PackageCode" = "8:{9287D4D7-8310-40CB-ADF5-EC40037BB641}"
         "UpgradeCode" = "8:{052C918A-9E75-425F-923F-DE8413F15C3A}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1212,7 +1238,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_2CA2884F239D44E69539CDD66B1E8BC7"
+        "ARPPRODUCTICON" = "8:_FDA0C46949954820BD6459FC64AF04ED"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1326,7 +1352,7 @@
             "Target" = "8:_3D5A23BDE0D64E2BA3C7D17CD6639188"
             "Folder" = "8:_58232ACC28AA439BBA42A27AAA238397"
             "WorkingFolder" = "8:_2F7945F1260E4B8BB8404B4C54E36AFA"
-            "Icon" = "8:_2CA2884F239D44E69539CDD66B1E8BC7"
+            "Icon" = "8:_FDA0C46949954820BD6459FC64AF04ED"
             "Feature" = "8:"
             }
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguracionCarnicos));
             this.panel1 = new System.Windows.Forms.Panel();
             this.webPreview = new System.Windows.Forms.WebBrowser();
             this.txbUrl = new System.Windows.Forms.TextBox();
@@ -111,7 +112,6 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 60);
             this.label3.Name = "label3";
@@ -134,7 +134,6 @@
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(13, 112);
@@ -157,6 +156,7 @@
             this.Controls.Add(this.txbUrl);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmConfiguracionCarnicos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

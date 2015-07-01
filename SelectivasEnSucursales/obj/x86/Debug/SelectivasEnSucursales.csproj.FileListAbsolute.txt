@@ -23,3 +23,4 @@ D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\obj\x86\Debug\SelectivasE
 D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\obj\x86\Debug\SelectivasEnSucursales.exe.licenses
 D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\obj\x86\Debug\SelectivasEnSucursales.exe
 D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\obj\x86\Debug\SelectivasEnSucursales.pdb
+D:\Github\Selectivas-Sucursales\SelectivasEnSucursales\bin\Debug\logomini.png

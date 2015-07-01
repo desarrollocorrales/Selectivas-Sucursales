@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>inventory-management-icon.ico</ApplicationIcon>
+    <ApplicationIcon>Tienda.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>SelectivasEnSucursales.Program</StartupObject>
@@ -186,6 +186,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logomini.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tienda.ico" />
+    <None Include="cargando.gif" />
     <Content Include="Configuracion\Leeme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

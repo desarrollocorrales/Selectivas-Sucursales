@@ -111,5 +111,11 @@ namespace SelectivasEnSucursales.GUIs
             link.ShowPreviewDialog();
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            gridExistencia.DataSource = null;
+            gvExistencia.BestFitColumns();
+        }
+
     }
 }
