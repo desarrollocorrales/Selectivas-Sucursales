@@ -152,7 +152,7 @@ namespace SelectivasEnSucursales.GUIs
             /******************************/
             // Creamos el Header
             PageHeaderArea Header = new PageHeaderArea();
-            ComponenteImpresion.Images.Add(Image.FromFile("logomini.png"));
+            ComponenteImpresion.Images.Add(Image.FromFile(Environment.CurrentDirectory+"\\logomini.png"));
             Header.Content.AddRange(new string[] { "[Image 0]", Properties.Settings.Default.Sucursal, "[Time Printed]" });
             Header.LineAlignment = BrickAlignment.Far;
             /******************************/

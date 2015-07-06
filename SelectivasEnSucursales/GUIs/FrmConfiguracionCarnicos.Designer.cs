@@ -160,7 +160,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmConfiguracionCarnicos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FrmConfiguracionCarnicos";
+            this.Text = "Configuración Cárnicos";
             this.Load += new System.EventHandler(this.FrmConfiguracionCarnicos_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
