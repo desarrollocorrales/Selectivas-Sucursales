@@ -17,5 +17,11 @@
     <Setting Name="SelectivasEnSucursales_SegConService_SegConWebService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://servidorx:82/SegCoServices/ServicioWeb.asmx</Value>
     </Setting>
+    <Setting Name="URLWebServiceFriolala" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://servidor:84/SegConFriolala/ServicioWeb.asmx</Value>
+    </Setting>
+    <Setting Name="SelectivasEnSucursales_WebServiceFriolala_ServicioWeb" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://200.23.18.85:84/segconfriolala/ServicioWeb.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

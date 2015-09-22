@@ -51,6 +51,8 @@
             this.bgwConsulta = new System.ComponentModel.BackgroundWorker();
             this.pbCargando = new System.Windows.Forms.PictureBox();
             this.lbltiempo = new System.Windows.Forms.Label();
+            this.bgwConsultaFriolala = new System.ComponentModel.BackgroundWorker();
+            this.lblTiempoFriolala = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridEtiquetas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.etiquetasGridBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvEtiquetas)).BeginInit();
@@ -270,17 +272,34 @@
             this.lbltiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbltiempo.AutoSize = true;
             this.lbltiempo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltiempo.Location = new System.Drawing.Point(12, 517);
+            this.lbltiempo.Location = new System.Drawing.Point(25, 517);
             this.lbltiempo.Name = "lbltiempo";
-            this.lbltiempo.Size = new System.Drawing.Size(103, 13);
+            this.lbltiempo.Size = new System.Drawing.Size(127, 13);
             this.lbltiempo.TabIndex = 12;
-            this.lbltiempo.Text = "Tiempo de consulta:";
+            this.lbltiempo.Text = "Tiempo de consulta ACC:";
+            // 
+            // bgwConsultaFriolala
+            // 
+            this.bgwConsultaFriolala.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwConsultaFriolala_DoWork);
+            this.bgwConsultaFriolala.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwConsultaFriolala_RunWorkerCompleted);
+            // 
+            // lblTiempoFriolala
+            // 
+            this.lblTiempoFriolala.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTiempoFriolala.AutoSize = true;
+            this.lblTiempoFriolala.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiempoFriolala.Location = new System.Drawing.Point(12, 533);
+            this.lblTiempoFriolala.Name = "lblTiempoFriolala";
+            this.lblTiempoFriolala.Size = new System.Drawing.Size(140, 13);
+            this.lblTiempoFriolala.TabIndex = 13;
+            this.lblTiempoFriolala.Text = "Tiempo de consulta Friolala:";
             // 
             // FrmCarnicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 573);
+            this.Controls.Add(this.lblTiempoFriolala);
             this.Controls.Add(this.lbltiempo);
             this.Controls.Add(this.pbCargando);
             this.Controls.Add(this.btnBuscarArchivo);
@@ -329,5 +348,7 @@
         private System.ComponentModel.BackgroundWorker bgwConsulta;
         private System.Windows.Forms.PictureBox pbCargando;
         private System.Windows.Forms.Label lbltiempo;
+        private System.ComponentModel.BackgroundWorker bgwConsultaFriolala;
+        private System.Windows.Forms.Label lblTiempoFriolala;
     }
 }

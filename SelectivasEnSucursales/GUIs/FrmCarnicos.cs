@@ -10,6 +10,7 @@ using System.IO;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraPrintingLinks;
 using DevExpress.XtraGrid.Views.Base;
+using SelectivasEnSucursales.Modelos;
 
 namespace SelectivasEnSucursales.GUIs
 {
@@ -17,8 +18,11 @@ namespace SelectivasEnSucursales.GUIs
     {
         private TimeSpan tiempoConsultaInicial, tiempoConsultaFinal;
         private string sError;
+        private string sEtiquetas;
         private string sArchivoDeEscaneo;
-        private List<SegConService.EtiquetasGrid> lstEtiquetas;
+        private List<Etiqueta> lstEtiquetas;
+        private List<SegConService.EtiquetasGrid> lstEtiquetasACC;
+        private List<WebServiceFriolala.EtiquetasGrid> lstEtiquetasFriolala;
 
         // Creando componentes de impresión.
         PrintingSystem SistemaImpresion = new PrintingSystem();
@@ -38,6 +42,8 @@ namespace SelectivasEnSucursales.GUIs
         {
             try
             {
+                lstEtiquetas = new List<Etiqueta>();
+                sEtiquetas = obtenerListaDeEtiquetetasDeEscaneo();
                 pbCargando.Visible = true;
                 ConsultarEtiquetas();
             }
@@ -46,6 +52,12 @@ namespace SelectivasEnSucursales.GUIs
                 ShowException(ex);
             }
         }
+
+        private void btnBuscarArchivo_Click(object sender, EventArgs e)
+        {
+            obtenerArchivoDeEscaneo();
+        }
+
         private string obtenerListaDeEtiquetetasDeEscaneo()
         {
             //Leer el archivo de escaneo
@@ -72,12 +84,9 @@ namespace SelectivasEnSucursales.GUIs
             tiempoConsultaInicial = DateTime.Now.TimeOfDay;
             btnConsultar.Enabled = false;
             bgwConsulta.RunWorkerAsync();
+            bgwConsultaFriolala.RunWorkerAsync();
         }
-
-        private void btnBuscarArchivo_Click(object sender, EventArgs e)
-        {            
-            obtenerArchivoDeEscaneo();
-        }
+        
         private void obtenerArchivoDeEscaneo()
         {
             DialogResult DR = ofdEscaneo.ShowDialog();
@@ -87,36 +96,30 @@ namespace SelectivasEnSucursales.GUIs
                 sArchivoDeEscaneo = ofdEscaneo.FileName;
                 txbRutaArchivoEscaneo.Text = ofdEscaneo.FileName;
             }
-        }
-
-        private void ShowException(Exception ex)
-        {
-            string TipoException = ex.GetType().ToString();
-            StringBuilder SB = new StringBuilder();
-            if (ex.InnerException != null)
-                SB.AppendLine(ex.InnerException.Message);
-            else
-                SB.AppendLine(ex.Message);
-
-            MessageBox.Show(SB.ToString(), TipoException, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void gvEtiquetas_EndGrouping(object sender, EventArgs e)
-        {
-            //Expandir los grupos
-            (sender as DevExpress.XtraGrid.Views.Grid.GridView).ExpandAllGroups();
-        }
+        }        
 
         private void bgwConsulta_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-                string sEtiquetas = obtenerListaDeEtiquetetasDeEscaneo();
-
                 SegConService.ServicioWeb Servicio = new SegConService.ServicioWeb();
                 Servicio.Url = Properties.Settings.Default.URLWebService;
 
-                lstEtiquetas = Servicio.ConsultarEtiquetas(sEtiquetas).ToList();
+                lstEtiquetasACC = Servicio.ConsultarEtiquetas(sEtiquetas).ToList();
+
+                Etiqueta etiqueta;
+                foreach (SegConService.EtiquetasGrid DatosEtiqueta in lstEtiquetasACC)
+                {
+                    etiqueta = new Etiqueta();
+                    etiqueta.ClaveNombre = DatosEtiqueta.ClaveNombre;
+                    etiqueta.NumeroDeEtiqueta = DatosEtiqueta.NumeroDeEtiqueta;
+                    etiqueta.FechaDeEmpaque = DatosEtiqueta.FechaDeEmpaque;
+                    etiqueta.FechaDeCaducidad = DatosEtiqueta.FechaDeCaducidad;
+                    etiqueta.Cantidad = DatosEtiqueta.Cantidad;
+                    etiqueta.Unidad = DatosEtiqueta.Unidad;
+
+                    lstEtiquetas.Add(etiqueta);
+                }
                 sError = string.Empty;
             }
             catch (Exception ex)
@@ -128,9 +131,12 @@ namespace SelectivasEnSucursales.GUIs
         {
             if (sError.Equals(string.Empty))
             {
-                gridEtiquetas.DataSource = lstEtiquetas;
-                gvEtiquetas.BestFitColumns();
-                pbCargando.Visible = false;
+                if (bgwConsultaFriolala.IsBusy == false)
+                {
+                    gridEtiquetas.DataSource = lstEtiquetas;
+                    gvEtiquetas.BestFitColumns();
+                    pbCargando.Visible = false;
+                }
             }
             else
             {
@@ -176,6 +182,77 @@ namespace SelectivasEnSucursales.GUIs
             ComponenteImpresion.CreateDocument(SistemaImpresion);
             //Mostrar la vista previa para imprimir
             ComponenteImpresion.ShowPreviewDialog();
+        }
+
+        private void bgwConsultaFriolala_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                WebServiceFriolala.ServicioWeb Servicio = new WebServiceFriolala.ServicioWeb();
+                Servicio.Url = Properties.Settings.Default.URLWebServiceFriolala;
+
+                lstEtiquetasFriolala = Servicio.ConsultarEtiquetas(sEtiquetas).ToList();
+
+                Etiqueta etiqueta;
+                foreach (WebServiceFriolala.EtiquetasGrid DatosEtiqueta in lstEtiquetasFriolala)
+                {
+                    etiqueta = new Etiqueta();
+                    etiqueta.ClaveNombre = DatosEtiqueta.ClaveNombre;
+                    etiqueta.NumeroDeEtiqueta = DatosEtiqueta.NumeroDeEtiqueta;
+                    etiqueta.FechaDeEmpaque = DatosEtiqueta.FechaDeEmpaque;
+                    etiqueta.FechaDeCaducidad = DatosEtiqueta.FechaDeCaducidad;
+                    etiqueta.Cantidad = DatosEtiqueta.Cantidad;
+                    etiqueta.Unidad = DatosEtiqueta.Unidad;
+
+                    lstEtiquetas.Add(etiqueta);
+                }
+
+                sError = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                sError = "Ocurrio un error con el Servicio Web: " + Environment.NewLine + ex.Message;
+            }
+        }
+
+        private void gvEtiquetas_EndGrouping(object sender, EventArgs e)
+        {
+            //Expandir los grupos
+            (sender as DevExpress.XtraGrid.Views.Grid.GridView).ExpandAllGroups();
+        }
+
+        private void ShowException(Exception ex)
+        {
+            string TipoException = ex.GetType().ToString();
+            StringBuilder SB = new StringBuilder();
+            if (ex.InnerException != null)
+                SB.AppendLine(ex.InnerException.Message);
+            else
+                SB.AppendLine(ex.Message);
+
+            MessageBox.Show(SB.ToString(), TipoException, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void bgwConsultaFriolala_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (sError.Equals(string.Empty))
+            {
+                if (bgwConsulta.IsBusy == false)
+                {
+                    gridEtiquetas.DataSource = lstEtiquetas;
+                    gvEtiquetas.BestFitColumns();
+                    pbCargando.Visible = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show(sError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            btnConsultar.Enabled = true;
+            tiempoConsultaFinal = DateTime.Now.TimeOfDay;
+            TimeSpan tiempoTotal = tiempoConsultaFinal - tiempoConsultaInicial;
+            lblTiempoFriolala.Text += " " + tiempoTotal.Seconds + " segundos.";
         }
     }
 }

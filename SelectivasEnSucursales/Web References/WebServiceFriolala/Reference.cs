@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace SelectivasEnSucursales.SegConService {
+namespace SelectivasEnSucursales.WebServiceFriolala {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -35,7 +35,7 @@ namespace SelectivasEnSucursales.SegConService {
         
         /// <remarks/>
         public ServicioWeb() {
-            this.Url = global::SelectivasEnSucursales.Properties.Settings.Default.SelectivasEnSucursales_SegConService_SegConWebService;
+            this.Url = global::SelectivasEnSucursales.Properties.Settings.Default.SelectivasEnSucursales_WebServiceFriolala_ServicioWeb;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

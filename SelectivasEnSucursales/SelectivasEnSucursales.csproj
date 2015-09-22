@@ -110,9 +110,15 @@
     </Compile>
     <Compile Include="Modelos\Almacen.cs" />
     <Compile Include="Modelos\Articulo.cs" />
+    <Compile Include="Modelos\Etiqueta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web References\SegConService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebServiceFriolala\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -178,6 +184,14 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\SegConService\ServicioWeb.wsdl" />
+    <None Include="Web References\WebServiceFriolala\EtiquetasGrid.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebServiceFriolala\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebServiceFriolala\ServicioWeb.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClasesDeConfiguracion\ClasesDeConfiguracion.csproj">
@@ -190,6 +204,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Tienda.ico" />
+    <None Include="Web References\WebServiceFriolala\ServicioWeb.disco" />
     <None Include="cargando.gif" />
     <Content Include="Configuracion\Leeme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -203,6 +218,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://200.23.18.85:84/segconfriolala/">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebServiceFriolala\</RelPath>
+      <UpdateFromURL>http://200.23.18.85:84/segconfriolala/</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SelectivasEnSucursales_WebServiceFriolala_ServicioWeb</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://servidorx:82/SegCoServices/ServicioWeb.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\SegConService\</RelPath>
