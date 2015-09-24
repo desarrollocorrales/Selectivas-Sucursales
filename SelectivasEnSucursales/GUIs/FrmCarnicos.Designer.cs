@@ -53,6 +53,7 @@
             this.lbltiempo = new System.Windows.Forms.Label();
             this.bgwConsultaFriolala = new System.ComponentModel.BackgroundWorker();
             this.lblTiempoFriolala = new System.Windows.Forms.Label();
+            this.tvTarimas = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.gridEtiquetas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.etiquetasGridBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvEtiquetas)).BeginInit();
@@ -63,7 +64,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(286, 34);
+            this.label2.Location = new System.Drawing.Point(332, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(221, 18);
             this.label2.TabIndex = 3;
@@ -74,7 +75,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 9);
+            this.label1.Location = new System.Drawing.Point(325, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(235, 25);
             this.label1.TabIndex = 2;
@@ -94,9 +95,9 @@
             // 
             this.btnConsultar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnConsultar.AutoSize = true;
-            this.btnConsultar.Location = new System.Drawing.Point(357, 121);
+            this.btnConsultar.Location = new System.Drawing.Point(403, 119);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(78, 28);
+            this.btnConsultar.Size = new System.Drawing.Size(78, 30);
             this.btnConsultar.TabIndex = 7;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -110,7 +111,7 @@
             this.txbRutaArchivoEscaneo.Enabled = false;
             this.txbRutaArchivoEscaneo.Location = new System.Drawing.Point(12, 89);
             this.txbRutaArchivoEscaneo.Name = "txbRutaArchivoEscaneo";
-            this.txbRutaArchivoEscaneo.Size = new System.Drawing.Size(718, 26);
+            this.txbRutaArchivoEscaneo.Size = new System.Drawing.Size(810, 26);
             this.txbRutaArchivoEscaneo.TabIndex = 6;
             // 
             // label3
@@ -128,10 +129,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridEtiquetas.DataSource = this.etiquetasGridBindingSource;
-            this.gridEtiquetas.Location = new System.Drawing.Point(12, 155);
+            this.gridEtiquetas.Location = new System.Drawing.Point(219, 155);
             this.gridEtiquetas.MainView = this.gvEtiquetas;
             this.gridEtiquetas.Name = "gridEtiquetas";
-            this.gridEtiquetas.Size = new System.Drawing.Size(768, 359);
+            this.gridEtiquetas.Size = new System.Drawing.Size(653, 381);
             this.gridEtiquetas.TabIndex = 8;
             this.gridEtiquetas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvEtiquetas});
@@ -172,6 +173,8 @@
             this.colNumeroDeEtiqueta.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNumeroDeEtiqueta.FieldName = "NumeroDeEtiqueta";
             this.colNumeroDeEtiqueta.Name = "colNumeroDeEtiqueta";
+            this.colNumeroDeEtiqueta.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "NumeroDeEtiqueta", "{0:0,0}")});
             this.colNumeroDeEtiqueta.Visible = true;
             this.colNumeroDeEtiqueta.VisibleIndex = 0;
             // 
@@ -225,7 +228,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnImprimir.Location = new System.Drawing.Point(359, 533);
+            this.btnImprimir.Location = new System.Drawing.Point(405, 542);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 28);
             this.btnImprimir.TabIndex = 9;
@@ -242,7 +245,7 @@
             // 
             this.btnBuscarArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscarArchivo.AutoSize = true;
-            this.btnBuscarArchivo.Location = new System.Drawing.Point(736, 89);
+            this.btnBuscarArchivo.Location = new System.Drawing.Point(828, 89);
             this.btnBuscarArchivo.Name = "btnBuscarArchivo";
             this.btnBuscarArchivo.Size = new System.Drawing.Size(44, 28);
             this.btnBuscarArchivo.TabIndex = 10;
@@ -259,7 +262,7 @@
             // 
             this.pbCargando.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbCargando.Image = global::SelectivasEnSucursales.Properties.Resources.cargando;
-            this.pbCargando.Location = new System.Drawing.Point(312, 239);
+            this.pbCargando.Location = new System.Drawing.Point(358, 244);
             this.pbCargando.Name = "pbCargando";
             this.pbCargando.Size = new System.Drawing.Size(169, 94);
             this.pbCargando.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -272,7 +275,7 @@
             this.lbltiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbltiempo.AutoSize = true;
             this.lbltiempo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltiempo.Location = new System.Drawing.Point(25, 517);
+            this.lbltiempo.Location = new System.Drawing.Point(25, 544);
             this.lbltiempo.Name = "lbltiempo";
             this.lbltiempo.Size = new System.Drawing.Size(127, 13);
             this.lbltiempo.TabIndex = 12;
@@ -288,17 +291,26 @@
             this.lblTiempoFriolala.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTiempoFriolala.AutoSize = true;
             this.lblTiempoFriolala.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTiempoFriolala.Location = new System.Drawing.Point(12, 533);
+            this.lblTiempoFriolala.Location = new System.Drawing.Point(12, 560);
             this.lblTiempoFriolala.Name = "lblTiempoFriolala";
             this.lblTiempoFriolala.Size = new System.Drawing.Size(140, 13);
             this.lblTiempoFriolala.TabIndex = 13;
             this.lblTiempoFriolala.Text = "Tiempo de consulta Friolala:";
             // 
+            // tvTarimas
+            // 
+            this.tvTarimas.Location = new System.Drawing.Point(12, 155);
+            this.tvTarimas.Name = "tvTarimas";
+            this.tvTarimas.Size = new System.Drawing.Size(201, 378);
+            this.tvTarimas.TabIndex = 15;
+            this.tvTarimas.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvTarimas_AfterSelect);
+            // 
             // FrmCarnicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 573);
+            this.ClientSize = new System.Drawing.Size(884, 582);
+            this.Controls.Add(this.tvTarimas);
             this.Controls.Add(this.lblTiempoFriolala);
             this.Controls.Add(this.lbltiempo);
             this.Controls.Add(this.pbCargando);
@@ -350,5 +362,7 @@
         private System.Windows.Forms.Label lbltiempo;
         private System.ComponentModel.BackgroundWorker bgwConsultaFriolala;
         private System.Windows.Forms.Label lblTiempoFriolala;
+        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
+        private System.Windows.Forms.TreeView tvTarimas;
     }
 }

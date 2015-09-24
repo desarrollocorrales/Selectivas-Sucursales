@@ -77,6 +77,8 @@ namespace SelectivasEnSucursales.GUIs
                 ShowException(ex);
             }
 
+            Tarimificar(ArrayEtiquetas);
+
             return ArrayEtiquetas;
         }
         private void ConsultarEtiquetas()
@@ -254,5 +256,43 @@ namespace SelectivasEnSucursales.GUIs
             TimeSpan tiempoTotal = tiempoConsultaFinal - tiempoConsultaInicial;
             lblTiempoFriolala.Text += " " + tiempoTotal.Seconds + " segundos.";
         }
+
+        private void Tarimificar(string sEscaneo)
+        {
+            string[] sTarimificado = sEscaneo.Split('.');
+
+            int i = 1;
+            tvTarimas.Nodes.Clear();
+            foreach (string tarima in sTarimificado)
+            {
+                tvTarimas.Nodes.Add("Tarima " + (i++).ToString().PadLeft(3));
+            }
+        }
+
+        private void ActualizarGridPorTarima(int indexTarima)
+        {
+            string sEscaneo = obtenerListaDeEtiquetetasDeEscaneo();
+            string[] sTarimificado = sEscaneo.Split('.');
+            string sEtiquetas = sTarimificado[indexTarima];
+            string[] numerosdeetiquetas = sEtiquetas.Replace("\r\n","\n").Split('\n');
+
+            List<Etiqueta> lstEtiquetasAMostrar = new List<Etiqueta>();
+            foreach (string numeroetiqueta in numerosdeetiquetas)
+            {
+                lstEtiquetasAMostrar.Add(lstEtiquetas.FirstOrDefault(o => o.NumeroDeEtiqueta == numeroetiqueta));
+            }
+
+            lstEtiquetasAMostrar.RemoveAll(o=>o == null);
+            gridEtiquetas.DataSource = lstEtiquetasAMostrar;
+            gvEtiquetas.BestFitColumns();
+        }
+
+        private void tvTarimas_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TreeNode SelectedNode = tvTarimas.SelectedNode;
+            ActualizarGridPorTarima(tvTarimas.SelectedNode.Index);
+            tvTarimas.SelectedNode = SelectedNode;
+        }
+
     }
 }
