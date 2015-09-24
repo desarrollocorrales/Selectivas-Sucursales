@@ -1221,7 +1221,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Selectivas en Sucursales"
         "ProductCode" = "8:{1A9F4987-6707-406A-A0B7-FC15E043B3F4}"
-        "PackageCode" = "8:{6828F276-D0B0-42C9-9C5D-BDB276C11C0C}"
+        "PackageCode" = "8:{725AB96A-2FF7-47D8-9146-DB97FE8A0954}"
         "UpgradeCode" = "8:{052C918A-9E75-425F-923F-DE8413F15C3A}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
