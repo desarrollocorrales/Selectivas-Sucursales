@@ -132,7 +132,7 @@
             this.gridEtiquetas.Location = new System.Drawing.Point(219, 155);
             this.gridEtiquetas.MainView = this.gvEtiquetas;
             this.gridEtiquetas.Name = "gridEtiquetas";
-            this.gridEtiquetas.Size = new System.Drawing.Size(653, 381);
+            this.gridEtiquetas.Size = new System.Drawing.Size(653, 374);
             this.gridEtiquetas.TabIndex = 8;
             this.gridEtiquetas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvEtiquetas});
@@ -160,6 +160,7 @@
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "NumeroDeEtiqueta", null, ""),
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Cantidad", this.colCantidad, "")});
             this.gvEtiquetas.Name = "gvEtiquetas";
+            this.gvEtiquetas.OptionsBehavior.Editable = false;
             this.gvEtiquetas.OptionsView.ShowFooter = true;
             this.gvEtiquetas.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colClaveNombre, DevExpress.Data.ColumnSortOrder.Ascending)});
@@ -228,7 +229,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnImprimir.Location = new System.Drawing.Point(405, 542);
+            this.btnImprimir.Location = new System.Drawing.Point(405, 572);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 28);
             this.btnImprimir.TabIndex = 9;
@@ -262,7 +263,7 @@
             // 
             this.pbCargando.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbCargando.Image = global::SelectivasEnSucursales.Properties.Resources.cargando;
-            this.pbCargando.Location = new System.Drawing.Point(358, 244);
+            this.pbCargando.Location = new System.Drawing.Point(358, 259);
             this.pbCargando.Name = "pbCargando";
             this.pbCargando.Size = new System.Drawing.Size(169, 94);
             this.pbCargando.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -275,7 +276,7 @@
             this.lbltiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbltiempo.AutoSize = true;
             this.lbltiempo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltiempo.Location = new System.Drawing.Point(25, 544);
+            this.lbltiempo.Location = new System.Drawing.Point(25, 532);
             this.lbltiempo.Name = "lbltiempo";
             this.lbltiempo.Size = new System.Drawing.Size(127, 13);
             this.lbltiempo.TabIndex = 12;
@@ -291,7 +292,7 @@
             this.lblTiempoFriolala.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTiempoFriolala.AutoSize = true;
             this.lblTiempoFriolala.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTiempoFriolala.Location = new System.Drawing.Point(12, 560);
+            this.lblTiempoFriolala.Location = new System.Drawing.Point(12, 548);
             this.lblTiempoFriolala.Name = "lblTiempoFriolala";
             this.lblTiempoFriolala.Size = new System.Drawing.Size(140, 13);
             this.lblTiempoFriolala.TabIndex = 13;
@@ -299,9 +300,11 @@
             // 
             // tvTarimas
             // 
+            this.tvTarimas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tvTarimas.Location = new System.Drawing.Point(12, 155);
             this.tvTarimas.Name = "tvTarimas";
-            this.tvTarimas.Size = new System.Drawing.Size(201, 378);
+            this.tvTarimas.Size = new System.Drawing.Size(201, 374);
             this.tvTarimas.TabIndex = 15;
             this.tvTarimas.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvTarimas_AfterSelect);
             // 
@@ -309,7 +312,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 582);
+            this.ClientSize = new System.Drawing.Size(884, 612);
             this.Controls.Add(this.tvTarimas);
             this.Controls.Add(this.lblTiempoFriolala);
             this.Controls.Add(this.lbltiempo);
@@ -362,7 +365,6 @@
         private System.Windows.Forms.Label lbltiempo;
         private System.ComponentModel.BackgroundWorker bgwConsultaFriolala;
         private System.Windows.Forms.Label lblTiempoFriolala;
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
         private System.Windows.Forms.TreeView tvTarimas;
     }
 }

@@ -138,17 +138,17 @@ namespace SelectivasEnSucursales.GUIs
                     gridEtiquetas.DataSource = lstEtiquetas;
                     gvEtiquetas.BestFitColumns();
                     pbCargando.Visible = false;
+                    btnConsultar.Enabled = true;
                 }
             }
             else
             {
                 MessageBox.Show(sError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            btnConsultar.Enabled = true;
+            
             tiempoConsultaFinal = DateTime.Now.TimeOfDay;
             TimeSpan tiempoTotal = tiempoConsultaFinal - tiempoConsultaInicial;
-            lbltiempo.Text = "Tiempo de consulta: " + tiempoTotal.Seconds + " segundos.";
+            lbltiempo.Text = "Tiempo de consulta ACC: " + tiempoTotal.Seconds + " segundos.";
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -216,6 +216,27 @@ namespace SelectivasEnSucursales.GUIs
                 sError = "Ocurrio un error con el Servicio Web: " + Environment.NewLine + ex.Message;
             }
         }
+        private void bgwConsultaFriolala_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (sError.Equals(string.Empty))
+            {
+                if (bgwConsulta.IsBusy == false)
+                {
+                    gridEtiquetas.DataSource = lstEtiquetas;
+                    gvEtiquetas.BestFitColumns();
+                    pbCargando.Visible = false;
+                    btnConsultar.Enabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show(sError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            tiempoConsultaFinal = DateTime.Now.TimeOfDay;
+            TimeSpan tiempoTotal = tiempoConsultaFinal - tiempoConsultaInicial;
+            lblTiempoFriolala.Text = "Tiempo de consulta Friolala: " + tiempoTotal.Seconds + " segundos.";
+        }
 
         private void gvEtiquetas_EndGrouping(object sender, EventArgs e)
         {
@@ -233,29 +254,7 @@ namespace SelectivasEnSucursales.GUIs
                 SB.AppendLine(ex.Message);
 
             MessageBox.Show(SB.ToString(), TipoException, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void bgwConsultaFriolala_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (sError.Equals(string.Empty))
-            {
-                if (bgwConsulta.IsBusy == false)
-                {
-                    gridEtiquetas.DataSource = lstEtiquetas;
-                    gvEtiquetas.BestFitColumns();
-                    pbCargando.Visible = false;
-                }
-            }
-            else
-            {
-                MessageBox.Show(sError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            btnConsultar.Enabled = true;
-            tiempoConsultaFinal = DateTime.Now.TimeOfDay;
-            TimeSpan tiempoTotal = tiempoConsultaFinal - tiempoConsultaInicial;
-            lblTiempoFriolala.Text += " " + tiempoTotal.Seconds + " segundos.";
-        }
+        }        
 
         private void Tarimificar(string sEscaneo)
         {
