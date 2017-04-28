@@ -135,6 +135,8 @@ namespace SelectivasEnSucursales.GUIs
             {
                 if (bgwConsultaFriolala.IsBusy == false)
                 {
+                    lstEtiquetas = lstEtiquetas.ToLookup(o => o.NumeroDeEtiqueta).Select(col => col.First()).ToList();
+
                     gridEtiquetas.DataSource = lstEtiquetas;
                     gvEtiquetas.BestFitColumns();
                     pbCargando.Visible = false;
@@ -222,6 +224,8 @@ namespace SelectivasEnSucursales.GUIs
             {
                 if (bgwConsulta.IsBusy == false)
                 {
+                    lstEtiquetas = lstEtiquetas.ToLookup(o => o.NumeroDeEtiqueta).Select(col => col.First()).ToList();
+                    
                     gridEtiquetas.DataSource = lstEtiquetas;
                     gvEtiquetas.BestFitColumns();
                     pbCargando.Visible = false;
